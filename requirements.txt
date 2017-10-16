@@ -42,4 +42,4 @@ sqlalchemy==1.1.14
 tabulate==0.8.1
 uwsgi==2.0.15
 xhtml2pdf==0.2b1
-xlsxwriter==1.0.0
+xlsxwriter==1.0.2
