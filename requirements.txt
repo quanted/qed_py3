@@ -8,7 +8,7 @@ django==1.11.7
 django-crispy-forms==1.7.0
 django-parsley==0.6
 django-rest-swagger==2.1.2
-earthengine-api==0.1.127
+earthengine-api==0.1.129
 factory-boy==2.9.2
 flask==0.12.2
 flask-restful==0.3.6
