@@ -5,6 +5,7 @@ FROM python:3
 WORKDIR /src
 
 #Add requirements file before install requirements
+#COPY .requirements_qed/requirements.txt ./requirements.txt
 COPY requirements.txt ./requirements.txt
 
 #Install requirements, including nose2
