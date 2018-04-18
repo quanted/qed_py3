@@ -1,4 +1,5 @@
 #from latest official python 3 docker build
+# debian linux with buildpack-deps
 FROM python:3
 
 #Set working directory to src to run commands
