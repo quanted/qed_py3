@@ -29,6 +29,17 @@ RUN cd /tmp/gdal-${GDAL_VERSION} && \
 
 RUN rm /tmp/gdal-${GDAL_VERSION} -rf
 
+# Install Proj.4
+RUN git clone https://github.com/OSGeo/proj.4.git \
+    && cd proj.4 \
+    && ./autogen.sh \
+    && ./configure --prefix=/usr \
+    && make \
+    && make install \
+    && cd /proj.4/docs \
+    && make html \
+    && rm -rf /proj.4
+
 #Add requirements file before install requirements
 COPY requirements_qed/requirements.txt ./requirements.txt
 #COPY requirements.txt ./requirements.txt
