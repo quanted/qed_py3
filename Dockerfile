@@ -29,6 +29,10 @@ RUN cd /tmp/gdal-${GDAL_VERSION} && \
 
 RUN rm /tmp/gdal-${GDAL_VERSION} -rf
 
+RUN apt-get update && apt-get install -y \
+    cmake \
+    git
+
 # Install Proj.4
 RUN git clone https://github.com/OSGeo/proj.4.git \
     && cd proj.4 \
