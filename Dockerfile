@@ -3,7 +3,7 @@
 FROM python:3
 
 #Set working directory to src to run commands
-#WORKDIR /src
+WORKDIR /src
 
 ENV GDAL_VERSION=2.2.1
 
@@ -29,8 +29,7 @@ RUN cd /tmp/gdal-${GDAL_VERSION} && \
 
 RUN rm /tmp/gdal-${GDAL_VERSION} -rf
 
-RUN apt-get update && apt-get install -y \
-    cmake \
+RUN apt-get update && apt-get install -y --fix-missing --no-install-recommends \
     git
 
 # Install Proj.4
@@ -40,13 +39,10 @@ RUN git clone https://github.com/OSGeo/proj.4.git \
     && ./configure --prefix=/usr \
     && make \
     && make install \
-    && cd /proj.4/docs \
-    && make html \
     && rm -rf /proj.4
 
 #Add requirements file before install requirements
 COPY requirements_qed/requirements.txt ./requirements.txt
-#COPY requirements.txt ./requirements.txt
 
 #Install requirements, including nose2
 RUN pip install -r requirements.txt
