@@ -12,12 +12,12 @@ ENV PROJ4_VERSION=5.0.1
 
 # Install GEOS
 RUN wget http://download.osgeo.org/geos/geos-${GEOS_VERSION}.tar.bz2 -O /tmp/geos-${GEOS_VERSION}.tar.bz2 \
-  && tar -xf /tmp/geos-${GEOS_VERSION}.tar.bz2 -C /tmp \
-  && cd /tmp/geos-${GEOS_VERSION} \
-  && ./configure \
-  && make \
-  && make install \
-  && rm -rf /tmp/geos-${GEOS_VERSION}
+    && tar -xf /tmp/geos-${GEOS_VERSION}.tar.bz2 -C /tmp \
+    && cd /tmp/geos-${GEOS_VERSION} \
+    && ./configure \
+    && make \
+    && make install \
+    && rm -rf /tmp/geos-${GEOS_VERSION}
 
 # Install GDAL
 RUN wget http://download.osgeo.org/gdal/$GDAL_VERSION/gdal-${GDAL_VERSION}.tar.gz -O /tmp/gdal-${GDAL_VERSION}.tar.gz \
