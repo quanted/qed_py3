@@ -29,17 +29,16 @@ RUN cd /tmp/gdal-${GDAL_VERSION} && \
 
 RUN rm /tmp/gdal-${GDAL_VERSION} -rf
 
-RUN apt-get update && apt-get install -y --fix-missing --no-install-recommends \
-    git
+ENV PROJ4_VERSION=5.0.1
 
 # Install Proj.4
-RUN git clone https://github.com/OSGeo/proj.4.git \
-    && cd proj.4 \
-    && ./autogen.sh \
+RUN wget --no-check-certificate --content-disposition https://github.com/OSGeo/proj.4/releases/download/${PROJ4_VERSION}/proj-${PROJ4_VERSION}.tar.gz -O /tmp/proj-${PROJ4_VERSION}.tar.gz \
+    && tar -xvf /tmp/proj-${PROJ4_VERSION}.tar.gz -C /tmp \
+    && cd /tmp/proj-${PROJ4_VERSION} \
     && ./configure --prefix=/usr \
     && make \
     && make install \
-    && rm -rf /proj.4
+    && rm -rf /tmp/proj-${PROJ4_VERSION}
 
 #Add requirements file before install requirements
 COPY requirements_qed/requirements.txt ./requirements.txt
