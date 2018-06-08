@@ -1,3 +1,4 @@
 # qed_py3
 
-docker build file for python 3 with qed dependencies
+Docker build file for python 3 with qed dependencies
+Includes install for GDAL, Geos and Proj4.
