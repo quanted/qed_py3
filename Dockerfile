@@ -17,9 +17,9 @@ RUN wget http://download.osgeo.org/geos/geos-${GEOS_VERSION}.tar.bz2 -O /tmp/geo
     && ./configure \
     && make \
     && make install \
-    && rm -rf /tmp/geos-${GEOS_VERSION}
+    && rm -rf /tmp/geos-${GEOS_VERSION} \
     # Install GDAL
-RUN wget http://download.osgeo.org/gdal/${GDAL_VERSION}/gdal-${GDAL_VERSION}.tar.gz -O /tmp/gdal-${GDAL_VERSION}.tar.gz \
+    && wget http://download.osgeo.org/gdal/${GDAL_VERSION}/gdal-${GDAL_VERSION}.tar.gz -O /tmp/gdal-${GDAL_VERSION}.tar.gz \
     && tar -x -f /tmp/gdal-${GDAL_VERSION}.tar.gz -C /tmp \
     && cd /tmp/gdal-${GDAL_VERSION} \
     && ./configure \
@@ -38,9 +38,9 @@ RUN wget http://download.osgeo.org/gdal/${GDAL_VERSION}/gdal-${GDAL_VERSION}.tar
         --with-spatialite \
     && make -j $(nproc) \
     && make install \
-    && rm /tmp/gdal-${GDAL_VERSION} -rf
+    && rm /tmp/gdal-${GDAL_VERSION} -rf \
     # Install Proj.4
-RUN wget --no-check-certificate --content-disposition https://github.com/OSGeo/proj.4/releases/download/${PROJ4_VERSION}/proj-${PROJ4_VERSION}.tar.gz -O /tmp/proj-${PROJ4_VERSION}.tar.gz \
+    && wget --no-check-certificate --content-disposition https://github.com/OSGeo/proj.4/releases/download/${PROJ4_VERSION}/proj-${PROJ4_VERSION}.tar.gz -O /tmp/proj-${PROJ4_VERSION}.tar.gz \
     && tar -xvf /tmp/proj-${PROJ4_VERSION}.tar.gz -C /tmp \
     && cd /tmp/proj-${PROJ4_VERSION} \
     && ./configure --prefix=/usr \
