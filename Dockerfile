@@ -32,11 +32,11 @@ RUN cd /tmp/proj-${PROJ4_VERSION} \
    && make install \
    && rm -rf /tmp/proj-${PROJ4_VERSION}
 
-#ENV CPLUS_INCLUDE_PATH=/usr/include/gdal
-#ENV C_INCLUDE_PATH=/usr/include/gdal
+# ENV CPLUS_INCLUDE_PATH=/usr/include/gdal
+# ENV C_INCLUDE_PATH=/usr/include/gdal
 
-#Add requirements file before install requirements
+# Add requirements file before install requirements
 COPY requirements_qed/requirements.txt ./requirements.txt
 
-#Install requirements, including nose2
+# Install requirements, including nose2
 RUN pip install -r requirements.txt
