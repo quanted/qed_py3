@@ -11,7 +11,7 @@ WORKDIR /src
 
 # Set versions for GIS Packages
 ENV GEOS_VERSION=3.6.2
-# ENV GDAL_VERSION=2.3.0
+ENV GDAL_VERSION=2.2.4
 ENV PROJ4_VERSION=5.0.1
 
 # Install GEOS
@@ -37,6 +37,7 @@ RUN cd /tmp/proj-${PROJ4_VERSION} \
 
 # Add requirements file before install requirements
 COPY requirements_qed/requirements.txt ./requirements.txt
+COPY static_requirements.txt ./static_requirements.txt
 
 # Install requirements, including nose2
 RUN pip install -r requirements.txt
