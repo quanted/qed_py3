@@ -4,7 +4,7 @@ FROM dbsmith88/py-proj4 as proj4
 
 # from latest official python 3 docker build
 # debian linux with buildpack-deps
-FROM python:3
+FROM python:3 as base
 
 # Set working directory to src to run commands
 WORKDIR /src
