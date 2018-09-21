@@ -1,4 +1,4 @@
-FROM dbsmith88/py-gdal as gdal
+FROM dbsmith88/py-gdal:dev as gdal
 FROM dbsmith88/py-geos as geos
 FROM dbsmith88/py-proj4 as proj4
 
