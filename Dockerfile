@@ -26,10 +26,10 @@ RUN cd /tmp/gdal-${GDAL_VERSION} \
     && make && make install && ldconfig \
     && apt-get update -y \
     && apt-get remove -y --purge build-essential wget \
-    && cd $ROOTDIR && cd src/gdal-${GDAL_VERSION}/swig/python \
+    && cd /tmp/gdal-${GDAL_VERSION}/swig/python \
     && python3 setup.py build \
     && python3 setup.py install \
-    && cd $ROOTDIR && rm -Rf src/gdal*
+    && rm -Rf /tmp/gdal*
 
 # Install Proj4
 COPY --from=proj4 /tmp/proj-${PROJ4_VERSION} /tmp/proj-${PROJ4_VERSION}
