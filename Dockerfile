@@ -25,10 +25,10 @@ COPY --from=gdal /tmp/gdal-${GDAL_VERSION} /tmp/gdal-${GDAL_VERSION}
 RUN cd /tmp/gdal-${GDAL_VERSION} \
     && make && make install && ldconfig \
     && apt-get update -y \
-    && apt-get remove -y --purge build-essential wget \
+#    && apt-get remove -y --purge build-essential wget \
     && cd /tmp/gdal-${GDAL_VERSION}/swig/python \
-    && python3 setup.py build \
-    && python3 setup.py install \
+#    && python3 setup.py build \
+#    && python3 setup.py install \
     && rm -Rf /tmp/gdal*
 
 # Install Proj4
