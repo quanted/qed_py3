@@ -48,7 +48,8 @@ RUN apt install build-essential -y && apt install python-dev -y && apt update -y
     && python -m pip install --upgrade pip setuptools wheel
 
 # Temporary direct install of pyproj due to error using pip for Python 3.7
-RUN pip install cython && pip install git+https://github.com/jswhit/pyproj.git#egg=pyproj
+RUN pip install cython && pip install pyproj
+#RUN pip install cython && pip install git+https://github.com/jswhit/pyproj.git#egg=pyproj
 # Direct install of celery from github master branch, support for Python 3.7 not expected in pip package until celery 5
 RUN pip install git+https://github.com/celery/celery.git#egg=celery
 
