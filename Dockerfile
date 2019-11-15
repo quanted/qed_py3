@@ -8,6 +8,8 @@ CMD gdalinfo --version && gdalinfo --formats && ogrinfo --formats
 COPY requirements_qed/requirements.txt ./requirements.txt
 COPY static_requirements.txt ./static_requirements.txt
 
+RUN pip install 'fsspec>=0.3.3'
+
 # Install requirements, including nose2
-RUN pip3 install -r requirements.txt
+RUN pip install -r requirements.txt
 RUN python --version
