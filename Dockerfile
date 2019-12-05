@@ -1,4 +1,4 @@
-FROM dbsmith88/py-gdal
+FROM quanted/py-gdal
 ENV PATH /root/anaconda3/bin:$PATH
 
 # Output version and capabilities by default.
