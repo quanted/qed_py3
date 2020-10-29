@@ -2,7 +2,7 @@ FROM quanted/py-gdal:latest
 ENV PATH /root/anaconda3/bin:$PATH
 
 RUN apt update -y && \
-    apt install build-essential python3-dev -y && \
+    apt install build-essential python3-dev swig -y && \
     pip install -U pip
 
 # Output version and capabilities by default.
