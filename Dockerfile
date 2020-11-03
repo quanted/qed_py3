@@ -7,10 +7,12 @@ RUN apt update -y && \
     pip install -U pip
 
 # Add requirements file before install requirements
-COPY requirements_qed/requirements.txt ./requirements.txt
+# COPY requirements_qed/requirements.txt ./requirements.txt
 
 RUN pip install fsspec>=0.3.3
 RUN pip install uWSGI
 
-RUN pip install -r requirements.txt --ignore-installed
+RUN cd /tmp && git clone -b dev https://github.com/quanted/requirements_qed.git && \
+    pip install -r requirements_qed/requirements.txt
+    
 RUN python --version
