@@ -13,6 +13,6 @@ RUN pip install fsspec>=0.3.3
 RUN pip install uWSGI
 
 RUN cd /tmp && git clone -b dev https://github.com/quanted/requirements_qed.git && \
-    pip install -r requirements_qed/requirements.txt
+    pip install --upgrade -r requirements_qed/requirements.txt
     
 RUN python --version
