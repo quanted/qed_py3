@@ -11,7 +11,7 @@ CMD gdalinfo --version && gdalinfo --formats && ogrinfo --formats
 # Add requirements file before install requirements
 # COPY requirements_qed/requirements.txt ./requirements.txt
 
-RUN pip install fsspec>=0.3.3
+#RUN pip install fsspec>=0.3.3
 
 RUN conda install -c conda-forge uwsgi
 
