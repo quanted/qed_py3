@@ -1,4 +1,4 @@
-FROM quanted/py-gdal:mc_3.1.4
+FROM quanted/py-gdal:mc3.8_3.1.4
 ENV PATH /root/anaconda3/bin:$PATH
 
 RUN apt update -y && \
