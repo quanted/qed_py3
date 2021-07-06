@@ -2,7 +2,7 @@ FROM quanted/py-gdal:mc3.8_3.1.4
 ENV PATH /root/anaconda3/bin:$PATH
 
 RUN apt update -y && \
-    apt install build-essential python3-dev pip -y && \
+    apt install build-essential python3-dev python3-pip -y && \
     pip install -U pip
 
 # Output version and capabilities by default.
