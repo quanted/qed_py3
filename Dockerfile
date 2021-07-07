@@ -1,6 +1,6 @@
 FROM quanted/py-gdal:mc3.8_3.1.4
 ENV PATH /root/anaconda3/bin:$PATH
-ENV PYTHONPATH /opt/conda
+ENV PYTHONPATH /opt/conda:/opt/conda/bin
 
 RUN apt update -y && \
     apt upgrade -y && \
@@ -9,12 +9,11 @@ RUN apt update -y && \
 # Output version and capabilities by default.
 CMD gdalinfo --version && gdalinfo --formats && ogrinfo --formats
 
+SHELL ["conda", "run", "-n", "pyenv", "/bin/bash", "-c"]
+RUN conda install -n pyenv -c conda-forge uwsgi numpy
+RUN conda install -n pyenv --channel=numba numba
 
-RUN echo "conda activate base" >> ~/.bashrc
-RUN conda install -c conda-forge uwsgi numpy
-RUN conda install --channel=numba numba
-
-RUN cd /tmp && git clone -b dev https://github.com/quanted/requirements_qed.git && \
-    pip3 install -r requirements_qed/requirements.txt
+RUN cd /tmp && git clone -b dev https://github.com/quanted/requirements_qed.git
+RUN pip3 install -r /tmp/requirements_qed/requirements.txt
 
 RUN python --version
