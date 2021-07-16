@@ -14,6 +14,6 @@ RUN conda install -n pyenv -c conda-forge uwsgi
 RUN conda install -n pyenv --channel=numba numba
 
 RUN cd /tmp && git clone -b dev https://github.com/quanted/requirements_qed.git
-RUN conda run -n pyenv pip3 install --force-reinstall -r /tmp/requirements_qed/requirements.txt
+RUN conda run -n pyenv pip install --force-reinstall -r /tmp/requirements_qed/requirements.txt
 
 RUN python --version
