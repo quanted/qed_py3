@@ -9,7 +9,7 @@ RUN apt update -y && \
 # Output version and capabilities by default.
 CMD gdalinfo --version && gdalinfo --formats && ogrinfo --formats
 
-SHELL ["conda", "run", "-n", "pyenv", "/bin/bash", "-c"]
+#SHELL ["conda", "run", "-n", "pyenv", "/bin/bash", "-c"]
 RUN conda install -n pyenv -c conda-forge uwsgi
 RUN conda install -n pyenv --channel=numba numba
 
